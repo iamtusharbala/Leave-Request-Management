@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="1a5d7226c3f71610eddb1d12b40131cd" label="Leave Request" max_length="40" name="x_1632757_leave_re_leave_request" type="collection">
+        <element label="Reason" max_length="100" name="reason" type="string"/>
         <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="1" label="Status" max_length="40" name="status" type="choice">
-            <choice/>
+            <choice>
+                <element inactive_on_update="false" label="Rejected" sequence="2" value="rejected"/>
+                <element inactive_on_update="false" label="Approved" sequence="1" value="approved"/>
+                <element inactive_on_update="false" label="Cancelled" sequence="3" value="cancelled"/>
+                <element inactive_on_update="false" label="Pending" sequence="0" value="pending"/>
+            </choice>
         </element>
-        <element attributes="edge_encryption_enabled=true" label="Reason" max_length="40" name="reason" type="string"/>
         <element attributes="encode_utf8=false" label="Approver" max_length="32" name="approver" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="End date" max_length="40" name="end_date" type="glide_date"/>
         <element attributes="edge_encryption_enabled=true" choice="1" label="Leave type" max_length="40" name="leave_type" type="choice">
-            <choice/>
+            <choice>
+                <element inactive_on_update="false" label="Sick leave" sequence="0" value="sick leave"/>
+                <element inactive_on_update="false" label="Casual leave" sequence="1" value="casual leave"/>
+                <element inactive_on_update="false" label="Vacation" sequence="2" value="vacation"/>
+            </choice>
         </element>
         <element attributes="encode_utf8=false" label="Employee name" max_length="32" name="employee_name" reference="sys_user" type="reference"/>
         <element attributes="encode_utf8=false" label="Created by" max_length="32" name="created_by" reference="sys_user" type="reference"/>
